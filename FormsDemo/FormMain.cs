@@ -22,7 +22,7 @@ namespace FormsDemo
 
         private void MouseHook_MouseEvent(object sender, MouseHook.Model.LowLevelMouseEventArgs e)
         {
-            tbOutput.Text += $"Time: {e.Timestamp}, Point(x;y): {e.Point.x};{e.Point.y}, Event: {e.EventType}, Flags: {e.EventFlags}" + Environment.NewLine;
+            tbOutput.AppendText($"Time: {e.Timestamp}, Point(x;y): {e.Point.x};{e.Point.y}, Event: {e.EventType}, Flags: {e.EventFlags}" + Environment.NewLine);
         }
 
         public FormMain()
@@ -49,6 +49,11 @@ namespace FormsDemo
             }
 
             Environment.Exit(0);
+        }
+
+        private void BtnClear_Click(object sender, EventArgs e)
+        {
+            tbOutput.Text = string.Empty;
         }
     }
 }
